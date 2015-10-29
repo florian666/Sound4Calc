@@ -1,0 +1,203 @@
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 27-Oct-2015 17:40:22  PAGE    1
+
+************ OBJECT LISTING ************
+
+FILE NAME: C:\Users\mosnier\Desktop\Sound4Calc\MPU.c
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+           MPU.c     1    #include "MPU.h"
+           MPU.c     2    #include "addresses.h"
+           MPU.c     3    
+           MPU.c     4    //int is_sh3;
+           MPU.c     5    
+           MPU.c     6    void getMPU(void)
+P   00000000              _getMPU:                         ; function: getMPU
+                                                           ; frame size=0
+           MPU.c     7    {
+           MPU.c     8    
+           MPU.c     9            volatile unsigned short *plcr = (unsigned short *)SH7337_PLCR;
+           MPU.c    10    
+           MPU.c    11            unsigned short saved_plcr;
+           MPU.c    12            unsigned int tested_plcr;
+           MPU.c    13    
+           MPU.c    14    
+           MPU.c    15            saved_plcr = *plcr;
+    00000000 D40A                   MOV.L       L241+6,R4  ; H'A4000114
+    00000002 6641                   MOV.W       @R4,R6
+           MPU.c    16            *plcr = 0xffff;
+    00000004 D30A                   MOV.L       L241+10,R3 ; H'0000FFFF
+    00000006 2431                   MOV.W       R3,@R4
+           MPU.c    17    
+           MPU.c    18            tested_plcr = *plcr;
+    00000008 6541                   MOV.W       @R4,R5
+    0000000A 655D                   EXTU.W      R5,R5
+           MPU.c    19            *plcr = saved_plcr;
+           MPU.c    20    
+           MPU.c    21            is_sh3=(tested_plcr == 0x00ff || tested_plcr == 0x0fff);
+    0000000C 920B                   MOV.W       L241,R2    ; H'00FF
+    0000000E 3520                   CMP/EQ      R2,R5
+    00000010 8D05                   BT/S        L239
+    00000012 2461                   MOV.W       R6,@R4
+    00000014 9108                   MOV.W       L241+2,R1  ; H'0FFF
+    00000016 3510                   CMP/EQ      R1,R5
+    00000018 8901                   BT          L239
+    0000001A A001                   BRA         L240
+    0000001C E200                   MOV         #0,R2
+    0000001E              L239:                             
+    0000001E E201                   MOV         #1,R2
+    00000020              L240:                             
+    00000020 D004                   MOV.L       L241+14,R0 ; _is_sh3
+           MPU.c    22    }
+    00000022 000B                   RTS
+    00000024 2022                   MOV.L       R2,@R0
+    00000026              L241:                             
+    00000026 00FF                   .DATA.W     H'00FF
+    00000028 0FFF                   .DATA.W     H'0FFF
+    0000002A 0000                   .DATA.W     0
+    0000002C A4000114               .DATA.L     H'A4000114
+    00000030 0000FFFF               .DATA.L     H'0000FFFF
+    00000034 <00000000>             .DATA.L     _is_sh3
+           MPU.c    23    
+           MPU.c    24    /*enum MPU getMPU(void)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 27-Oct-2015 17:40:22  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+           MPU.c    25    {
+           MPU.c    26            // Processor version register.
+           MPU.c    27            volatile unsigned int *pvr = (unsigned int *)0xff000030;
+           MPU.c    28            // Product version register.
+           MPU.c    29            volatile unsigned int *prr = (unsigned int *)0xff000044;
+           MPU.c    30            // Port L control register.
+           MPU.c    31            volatile unsigned short *plcr = (unsigned short *)0xa4000114;
+           MPU.c    32            // Saved value for PLCR.
+           MPU.c    33            unsigned short saved_plcr;
+           MPU.c    34            unsigned int tested_plcr;
+           MPU.c    35    
+           MPU.c    36    
+           MPU.c    37            // Looking for SH-3-based MPUs by testing PLCR writing access.
+           MPU.c    38            saved_plcr = *plcr;
+           MPU.c    39            *plcr = 0xffff;
+           MPU.c    40    
+           MPU.c    41            tested_plcr = *plcr;
+           MPU.c    42            *plcr = saved_plcr;
+           MPU.c    43    
+           MPU.c    44            // Checking whether we are working with an SH3.
+           MPU.c    45            if(tested_plcr == 0x00ff || tested_plcr == 0x0fff) return MPU_SH3;
+           MPU.c    46    
+           MPU.c    47    
+           MPU.c    48            // We return by default MPU_SH4
+           MPU.c    49            return MPU_SH4;
+           MPU.c    50    
+           MPU.c    51    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 27-Oct-2015 17:40:22  PAGE    1
+
+
+******** STATISTICS INFORMATION ********
+
+
+********** ERROR INFORMATION ***********
+
+NUMBER OF ERRORS:           0
+NUMBER OF WARNINGS:         0
+
+
+
+
+******* SOURCE LINE INFORMATION ********
+
+COMPILED SOURCE LINE:       51
+
+
+
+******* SECTION SIZE INFORMATION *******
+
+PROGRAM  SECTION (P):                               00000038 Byte(s)
+CONSTANT SECTION (C):                               00000000 Byte(s)
+DATA     SECTION (D):                               00000000 Byte(s)
+BSS      SECTION (B):                               00000000 Byte(s)
+
+ TOTAL PROGRAM SIZE: 00000038 Byte(s)
+
+
+
+********** LABEL INFORMATION ***********
+
+NUMBER OF EXTERNAL REFERENCE SYMBOLS:            1
+NUMBER OF EXTERNAL DEFINITION SYMBOLS:           1
+NUMBER OF INTERNAL/EXTERNAL SYMBOLS:             5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*** COMMAND PARAMETER ***
+
+
+  -subcommand=C:\Users\mosnier\AppData\Local\Temp\hmkDC15.tmp 
+
