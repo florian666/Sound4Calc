@@ -144,10 +144,6 @@ if(is_SH4)
 
 void getMPU(void)
 {
-    // Processor version register.
-    // volatile unsigned int *pvr = (unsigned int *)0xff000030;
-    // Product version register.
-    // volatile unsigned int *prr = (unsigned int *)0xff000044;
     // Port L control register.
     volatile unsigned short *plcr = (unsigned short *)0xa4000114;
     // Saved value for PLCR.
