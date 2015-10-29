@@ -1,22 +1,22 @@
-Hitachi Optimizing Linkage Editor (Ver. 7.1.03.000)28-Oct-2015 14:14:21
+Hitachi Optimizing Linkage Editor (Ver. 7.1.03.000)29-Oct-2015 16:18:20
 
 *** Options ***
 
--subcommand=C:\Users\mosnier\AppData\Local\Temp\hmk9A9B.tmp
+-subcommand=C:\Users\mosnier\AppData\Local\Temp\hmk74A1.tmp
 noprelink
 sdebug
 rom D=R
 nomessage
-list "C:\Users\mosnier\Desktop\Sound4Calc\Debug\FXADDINror.map"
+list "C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\FXADDINror.map"
 show symbol
 nooptimize
 start P_TOP,P,C,D,C$VTBL,C$INIT/0300200,B_BR_Size,B,R/08100000
 fsymbol P
 nologo
-input "C:\Users\mosnier\Desktop\Sound4Calc\Debug\Sound4Calc.obj"
+input "C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\Sound4Calc.obj"
 input "C:\Users\mosnier\Desktop\projet avenger\OS\FX\lib\setup.obj"
 library "C:\Users\mosnier\Desktop\projet avenger\OS\FX\lib\fx9860G_library.lib"
-output "C:\Users\mosnier\Desktop\Sound4Calc\Debug\FXADDINror.abs"
+output "C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\FXADDINror.abs"
 -nomessage=1100
 end
 
@@ -48,13 +48,13 @@ FILE=                               START        END    SIZE
   SYMBOL                            ADDR        SIZE    INFO      COUNTS  OPT
 
 SECTION=P_TOP
-FILE=C:\Users\mosnier\Desktop\Sound4Calc\Debug\Sound4Calc.obj
+FILE=C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\Sound4Calc.obj
                                   00300200  0030020b         c
   _InitializeSystem
                                   00300200         c   func ,g         * 
 
 SECTION=P
-FILE=C:\Users\mosnier\Desktop\Sound4Calc\Debug\Sound4Calc.obj
+FILE=C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\Sound4Calc.obj
                                   0030020c  00300633       428
   _OSVersionAsInt
                                   0030020c        3e   func ,g         * 
@@ -634,7 +634,7 @@ FILE=memset
                                   00303864        18   func ,g         * 
 
 SECTION=C
-FILE=C:\Users\mosnier\Desktop\Sound4Calc\Debug\Sound4Calc.obj
+FILE=C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\Sound4Calc.obj
                                   0030387c  0030389c        21
   _sc0015
                                   0030387c        10   data ,g         * 
@@ -670,7 +670,7 @@ FILE=_power
                                   00303b9c        20   data ,l         * 
 
 SECTION=B_BR_Size
-FILE=C:\Users\mosnier\Desktop\Sound4Calc\Debug\Sound4Calc.obj
+FILE=C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\Sound4Calc.obj
                                   08100000  08100003         4
   _BR_Size
                                   08100000         4   data ,g         * 
@@ -682,7 +682,7 @@ FILE=_errno
                                   08100004         4   data ,g         * 
 
 SECTION=R
-FILE=C:\Users\mosnier\Desktop\Sound4Calc\Debug\Sound4Calc.obj
+FILE=C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug\Sound4Calc.obj
                                   08100008  08100008         1
   _is_SH4
                                   08100008         1   data ,g         * 

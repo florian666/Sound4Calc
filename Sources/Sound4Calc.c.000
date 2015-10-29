@@ -42,7 +42,7 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
         sprintf(buffer ,"- %d +",sleep);
         PrintMini(1, 1, (const unsigned char*)buffer, 0);
 
-        sprintf(buffer ,"MPU : %d",is_SH4);
+        sprintf(buffer ,"MPU : %d",);
         PrintMini(1, 10, (const unsigned char*)buffer, 0);
 
         GetKey(&key);
@@ -123,7 +123,7 @@ void SetPin()
     }
     else 
     {
-        *(unsigned char*)SH7337_SCPDR |= 0x01;
+        *(unsigned char*)0xA4000136 |= 0x01;
     }
 }
 
@@ -136,8 +136,7 @@ if(is_SH4)
     }
     else 
     {
-
-        *(unsigned char*)SH7337_SCPDR &= ~0x01;
+        *(unsigned char*)0xA4000136 &= ~0x01;
     }   
 }
 
@@ -149,7 +148,7 @@ void getMPU(void)
     // Product version register.
     // volatile unsigned int *prr = (unsigned int *)0xff000044;
     // Port L control register.
-    volatile unsigned short *plcr = (unsigned short *)0xa4000114;
+    volatile unsigned short *plcr = (unsigned short *)SH7337_PLCR;
     // Saved value for PLCR.
     unsigned short saved_plcr;
     unsigned int tested_plcr;

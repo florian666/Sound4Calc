@@ -5,8 +5,8 @@
 # Directory defines
 TCDIR = C:\Users\mosnier\Desktop\projet avenger\OS\SH
 OSDIR = C:\Users\mosnier\Desktop\projet avenger\OS
-APPDIR = C:\Users\mosnier\Desktop\Sound4Calc
-OUTDIR = C:\Users\mosnier\Desktop\Sound4Calc\Debug
+APPDIR = C:\Users\mosnier\Desktop\Sound4Calc\Sources
+OUTDIR = C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug
 
 ################
 # Main Defines
