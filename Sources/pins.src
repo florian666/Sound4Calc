@@ -1,0 +1,92 @@
+    .export _SetPin
+    .export _ResetPin
+    .export _getMPU
+
+_SetPin:
+        MOV.L        _is_SH4,R2 ; R2 = is_SH4
+        MOV.B       @R2,R3 ; R3 = *R2
+        TST         R3,R3 ;T=((R3 & R3)==0 ? 1 : 0)
+        BT          L261
+
+        MOV.L       ADR,R4 ; R4 = 0xA4050130
+        MOV.B       @R4,R0 ; R0 = *R4
+        OR          #4,R0 ; R0 |= 0x04
+        AND         #247,R0 ; R0 &= ~0x08 (247)
+        BRA         L262 ; next instruction & -> L262
+        MOV.B       R0,@R4 ; *R4 = R0
+
+    L261:                             
+        MOV.L       ADR+4,R3 ; R3 = 0xA4000136
+        MOV.B       @R3,R0 ; R0 = *R3
+        OR          #1,R0 ; R0|= 1
+        MOV.B       R0,@R3 ; *R3 =R0
+
+    L262:                             
+        RTS
+        NOP
+
+_ResetPin:
+
+        MOV.L        _is_SH4,R2 ; R2 = is_SH4
+        MOV.B       @R2,R3 ; R3 = *R2
+        TST         R3,R3 ; T=((R3 & R3)==0 ? 1 : 0)
+        BT          L263
+
+        MOV.L       ADR,R4 ; R4 = 0xA4050130
+        MOV.B       @R4,R0 ; r0 = *R4
+        AND         #251,R0 ; R0 &= ~0x04
+        OR          #8,R0 ; R0 |= 8 (247)
+        BRA         L264 ; next instruction & -> L264
+        MOV.B       R0,@R4 ; *R4 = R0
+
+
+    L263:                             
+        MOV.L       ADR+4,R3 ; R3 = 0xA4000136
+        MOV.B       @R3,R0 ; R0 = *R3
+        AND         #254,R0 ; R0 &= ~0x1
+        MOV.B       R0,@R3 ; *R3 = R0
+
+    L264:                             
+        RTS
+        NOP  
+
+_getMPU:
+        ;R2 -> saved_plcr
+        ;R3 -> tested_plcr
+        MOV.L       ADR+8,R1 ; R1 = H'A4000114
+        MOV.W       @R1,R2 ; R2 =*R1
+        MOV.W       VAL,R5 ; R5 = 0xFFFF
+        MOV.W       R5,@R1 ; *R5 = R1
+        MOV.W       @R1,R3 ; R3 = *R1
+        EXTU.W      R3,R3 ; ; R3 &= 0xFFFF
+        MOV.W       R2,@R1 ;*R1 = R2
+        MOV.W       VAL+2,R5 ; R5 = 0xFF
+        AND         R5,R3 ; R3 &= R5
+        CMP/EQ      R5,R3 ; T=((R3 = R5) ? 1 : 0)
+        BF          L265 ; if T = 0 (is_SH4) --> L265
+      
+        RTS
+        MOV         #0,R0 ; R0 = 0
+
+    L265:
+        RTS
+        MOV         #1,R0 ; R0 = 1
+
+        NOP
+
+
+
+
+    ADR:                         
+        .DATA.L     H'A4050130 ; SH7305_PJDR
+        .DATA.L     H'A4000136 ; SH7337_SCPDR
+        .DATA.L     H'A4000114 ; SH7337_PLCR
+
+    VAL:
+        .DATA.W     H'FFFF
+        .DATA.W     H'00FF
+        
+    _is_SH4:
+        .RES.B      1
+
+    .END

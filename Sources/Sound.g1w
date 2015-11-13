@@ -13,5 +13,7 @@ LoadAddress=80000000:90100000
 
 [Files]
 SourceFile=:Sound4Calc.c
+SourceFile=:pins.src
 HeaderFile=:addresses.h
 HeaderFile=:Sound4Calc.h
+HeaderFile=:pins.h

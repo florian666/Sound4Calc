@@ -2,7 +2,7 @@
 
 [_1]
 Type=5
-Order=7
+Order=5
 Top=15
 Left=2235
 Height=4740
@@ -13,7 +13,7 @@ OptionA=0
 
 [_2]
 Type=1
-Order=2
+Order=7
 Top=15
 Left=7800
 Height=4740
@@ -36,7 +36,7 @@ OptionA=0
 
 [_4]
 Type=7
-Order=5
+Order=9
 Top=4740
 Left=2220
 Height=3165
@@ -47,7 +47,7 @@ OptionA=0
 
 [_5]
 Type=8
-Order=4
+Order=8
 Top=7905
 Left=2220
 Height=3225
@@ -58,7 +58,7 @@ OptionA=0
 
 [_6]
 Type=3
-Order=10
+Order=11
 Top=0
 Left=10788
 Height=6348
@@ -69,7 +69,7 @@ OptionA=0
 
 [_7]
 Type=2
-Order=9
+Order=10
 Top=6348
 Left=7800
 Height=3588
@@ -102,24 +102,36 @@ OptionA=0
 
 [_32]
 Type=16
-Order=1
+Order=2
 Top=0
 Left=2205
 Height=4590
 Width=5595
 State=0
 Flags=00000020
-Setting=45:36:Sound4Calc.c
+Setting=6:1:PINS.src
 OptionA=0
 
 [_33]
 Type=16
-Order=8
-Top=3000
-Left=3000
-Height=9510
-Width=24240
+Order=4
+Top=1125
+Left=1125
+Height=9240
+Width=9600
+State=0
+Flags=00000020
+Setting=139:1:Sound4Calc.c
+OptionA=0
+
+[_34]
+Type=16
+Order=1
+Top=3375
+Left=3375
+Height=9495
+Width=9600
 State=16
 Flags=00000020
-Setting=11:1:Sound4Calc.h
+Setting=65:1:SH4comp.c
 OptionA=0

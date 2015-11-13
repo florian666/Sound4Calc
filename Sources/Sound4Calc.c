@@ -14,6 +14,7 @@
 #include "SH4comp.c"
 #include "addresses.h"
 #include "Sound4Calc.h"
+#include "pins.h"
 
 /*****************************************************************/
 /*                                                               */
@@ -24,7 +25,6 @@
 /*   Copyright (c) 2006 CASIO COMPUTER CO., LTD.                 */
 /*                                                               */
 /*****************************************************************/
-
 int AddIn_main(int isAppli, unsigned short OptionNum)
 {
     unsigned int key;
@@ -33,12 +33,12 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
     int sleep = 2000;
     int i;
 
-    Bdisp_AllClr_VRAM();
-
     setup();
 
     while(1)
     {
+        Bdisp_AllClr_VRAM();
+        
         sprintf(buffer ,"- %d +",sleep);
         PrintMini(1, 1, (const unsigned char*)buffer, 0);
 
@@ -46,7 +46,6 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
         PrintMini(1, 10, (const unsigned char*)buffer, 0);
 
         GetKey(&key);
-
 
         switch(key)
         {
@@ -69,7 +68,7 @@ return 1; // this point is never reached
 
 void setup()
 {
-    getMPU();
+    is_SH4 = getMPU();
 
     if(is_SH4)
     {
@@ -110,60 +109,6 @@ void setup()
     *(unsigned short*)0xA4050110 = ( *(unsigned short*)0xA4050110 & ~0x0030 ) | 0x0010;
     // set port J bit 3 to input    
     *(unsigned short*)0xA4050110 = ( *(unsigned short*)0xA4050110 & ~0x00C0 ) | 0x0080;*/
-}
-
-
-
-void SetPin()
-{
-    if(is_SH4)
-    {
-        *(unsigned char*)SH7305_PJDR |= 0x04;
-        *(unsigned char*)SH7305_PJDR &= ~0x08;
-    }
-    else 
-    {
-        *(unsigned char*)SH7337_SCPDR |= 0x01;
-    }
-}
-
-void ResetPin()
-{
-if(is_SH4)
-    {
-        *(unsigned char*)SH7305_PJDR &= ~0x04;
-        *(unsigned char*)SH7305_PJDR |= 0x08;
-    }
-    else 
-    {
-
-        *(unsigned char*)SH7337_SCPDR &= ~0x01;
-    }   
-}
-
-
-void getMPU(void)
-{
-    // Port L control register.
-    volatile unsigned short *plcr = (unsigned short *)0xa4000114;
-    // Saved value for PLCR.
-    unsigned short saved_plcr;
-    unsigned int tested_plcr;
-
-    saved_plcr = *plcr;
-    *plcr = 0xffff;
-
-    tested_plcr = *plcr;
-    *plcr = saved_plcr;
-
-    if(tested_plcr == 0x00ff || tested_plcr == 0x0fff)
-    {
-        is_SH4=0; // MPU_SH3
-    }
-
-    //by default is_SH4 = 1
-    
-return;
 }
 
 //****************************************************************************

@@ -1,4 +1,4 @@
-;HITACHI OPTIMIZING LINKAGE EDITOR GENERATED FILE 2015.10.29
+;HITACHI OPTIMIZING LINKAGE EDITOR GENERATED FILE 2015.11.13
 ;fsymbol = P
 
 ;SECTION NAME = P
@@ -13,139 +13,139 @@ _KeyDown: .equ h'00300348
  .export _GetKeyMod
 _GetKeyMod: .equ h'003003d8
  .export _setup
-_setup: .equ h'003004f8
- .export _SetPin
-_SetPin: .equ h'00300580
- .export _ResetPin
-_ResetPin: .equ h'003005a4
- .export _getMPU
-_getMPU: .equ h'003005c8
+_setup: .equ h'00300504
  .export _AddIn_main
 _AddIn_main: .equ h'0030042c
+ .export _ResetPin
+_ResetPin: .equ h'003005e8
+ .export _getMPU
+_getMPU: .equ h'00300608
+ .export _SetPin
+_SetPin: .equ h'003005c8
  .export ___LINK_PROTECT
-___LINK_PROTECT: .equ h'00300634
+___LINK_PROTECT: .equ h'0030063c
  .export _SetQuitHandler
-_SetQuitHandler: .equ h'00300638
+_SetQuitHandler: .equ h'00300640
  .export _OnAppCloseDefault
-_OnAppCloseDefault: .equ h'0030063e
+_OnAppCloseDefault: .equ h'00300646
  .export __INITSCT_ADDIN
-__INITSCT_ADDIN: .equ h'00300692
+__INITSCT_ADDIN: .equ h'0030069a
  .export _INIT_ADDIN_APPLICATION
-_INIT_ADDIN_APPLICATION: .equ h'003006da
+_INIT_ADDIN_APPLICATION: .equ h'003006e2
  .export __divls
-__divls: .equ h'00300750
+__divls: .equ h'00300758
  .export __modls
-__modls: .equ h'00300804
+__modls: .equ h'0030080c
  .export _memcpy
-_memcpy: .equ h'003008cc
+_memcpy: .equ h'003008d4
  .export _sprintf
-_sprintf: .equ h'0030098c
+_sprintf: .equ h'00300994
  .export _Bdel_cychdr
-_Bdel_cychdr: .equ h'003009c8
+_Bdel_cychdr: .equ h'003009d0
  .export _Bdisp_AllClr_VRAM
-_Bdisp_AllClr_VRAM: .equ h'003009d8
+_Bdisp_AllClr_VRAM: .equ h'003009e0
  .export _BfileFLS_CloseFile
-_BfileFLS_CloseFile: .equ h'003009e8
+_BfileFLS_CloseFile: .equ h'003009f0
  .export _Bkey_Set_RepeatTime_Default
-_Bkey_Set_RepeatTime_Default: .equ h'003009f8
+_Bkey_Set_RepeatTime_Default: .equ h'00300a00
  .export _CallbackAtQuitMainFunction
-_CallbackAtQuitMainFunction: .equ h'00300a08
+_CallbackAtQuitMainFunction: .equ h'00300a10
  .export _flsFindClose
-_flsFindClose: .equ h'00300a18
+_flsFindClose: .equ h'00300a20
  .export _GetKey
-_GetKey: .equ h'00300a28
+_GetKey: .equ h'00300a30
  .export _GLibAddinAplExecutionCheck
-_GLibAddinAplExecutionCheck: .equ h'00300a38
+_GLibAddinAplExecutionCheck: .equ h'00300a40
  .export _Hmem_SetMMU
-_Hmem_SetMMU: .equ h'00300a48
+_Hmem_SetMMU: .equ h'00300a50
  .export _PrintMini
-_PrintMini: .equ h'00300a58
+_PrintMini: .equ h'00300a60
  .export _locate
-_locate: .equ h'00300a74
+_locate: .equ h'00300a7c
  .export _Bdisp_ReadArea_DD
-_Bdisp_ReadArea_DD: .equ h'00300a9c
+_Bdisp_ReadArea_DD: .equ h'00300aa4
  .export __fmtout
-__fmtout: .equ h'00300bd0
+__fmtout: .equ h'00300bd8
  .export _DD_GET
-_DD_GET: .equ h'00301cbc
+_DD_GET: .equ h'00301cc4
  .export _locate_OS
-_locate_OS: .equ h'00301ccc
+_locate_OS: .equ h'00301cd4
  .export _PrintMiniSd
-_PrintMiniSd: .equ h'00301cdc
+_PrintMiniSd: .equ h'00301ce4
  .export __eqd
-__eqd: .equ h'00301cec
+__eqd: .equ h'00301cf4
  .export __divlu
-__divlu: .equ h'00301d80
+__divlu: .equ h'00301d88
  .export __modlu
-__modlu: .equ h'00301e28
+__modlu: .equ h'00301e30
  .export __its
-__its: .equ h'00301ee0
+__its: .equ h'00301ee8
  .export __xti
-__xti: .equ h'00302010
+__xti: .equ h'00302018
  .export _strlen
-_strlen: .equ h'003022a0
+_strlen: .equ h'003022a8
  .export __allzero
-__allzero: .equ h'003022b0
+__allzero: .equ h'003022b8
  .export __calcnpw
-__calcnpw: .equ h'003022d0
+__calcnpw: .equ h'003022d8
  .export __log10
-__log10: .equ h'003023d0
+__log10: .equ h'003023d8
  .export __lsfts
-__lsfts: .equ h'00302698
+__lsfts: .equ h'003026a0
  .export __pow5
-__pow5: .equ h'003026e4
+__pow5: .equ h'003026ec
  .export __rsfts
-__rsfts: .equ h'00302708
+__rsfts: .equ h'00302710
  .export __sub
-__sub: .equ h'00302760
+__sub: .equ h'00302768
  .export __umemcmp
-__umemcmp: .equ h'003027f4
+__umemcmp: .equ h'003027fc
  .export __unpack
-__unpack: .equ h'00302828
+__unpack: .equ h'00302830
  .export _memcmp
-_memcmp: .equ h'003028c4
+_memcmp: .equ h'003028cc
  .export __addd
-__addd: .equ h'003029c8
+__addd: .equ h'003029d0
  .export __subdr
-__subdr: .equ h'00302910
+__subdr: .equ h'00302918
  .export __subd
-__subd: .equ h'003028f8
+__subd: .equ h'00302900
  .export __dtoi
-__dtoi: .equ h'00302c88
+__dtoi: .equ h'00302c90
  .export __dtou
-__dtou: .equ h'00302c88
+__dtou: .equ h'00302c90
  .export __itod
-__itod: .equ h'00302d14
+__itod: .equ h'00302d1c
  .export __ltd
-__ltd: .equ h'00302d68
+__ltd: .equ h'00302d70
  .export __muld
-__muld: .equ h'00302eb4
+__muld: .equ h'00302ebc
  .export __ned
-__ned: .equ h'00303024
+__ned: .equ h'0030302c
  .export __divws
-__divws: .equ h'003030b8
+__divws: .equ h'003030c0
  .export __div64
-__div64: .equ h'00303108
+__div64: .equ h'00303110
  .export __duchek
-__duchek: .equ h'0030329c
+__duchek: .equ h'003032a4
  .export __lsft
-__lsft: .equ h'003032cc
+__lsft: .equ h'003032d4
  .export __mult64
-__mult64: .equ h'00303314
+__mult64: .equ h'0030331c
  .export __power
-__power: .equ h'00303384
+__power: .equ h'0030338c
  .export __rnd
-__rnd: .equ h'003034d8
+__rnd: .equ h'003034e0
  .export __setsbit
-__setsbit: .equ h'003035c4
+__setsbit: .equ h'003035cc
  .export __add
-__add: .equ h'00303648
+__add: .equ h'00303650
  .export __mult
-__mult: .equ h'003036a4
+__mult: .equ h'003036ac
  .export __pow10
-__pow10: .equ h'00303780
+__pow10: .equ h'00303788
  .export __rsft
-__rsft: .equ h'00303818
+__rsft: .equ h'00303820
  .export _memset
-_memset: .equ h'00303864
+_memset: .equ h'0030386c
  .end
