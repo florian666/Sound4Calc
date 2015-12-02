@@ -1,4 +1,4 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    1
 
 ************ OBJECT LISTING ************
 
@@ -64,7 +64,7 @@ P   00000000              _OSVersionAsInt:                 ; function: OSVersion
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    2
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    2
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -130,7 +130,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    3
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    3
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -196,7 +196,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    4
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    4
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -262,7 +262,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    5
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    5
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -328,7 +328,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    6
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    6
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -394,7 +394,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    7
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    7
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -460,7 +460,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    8
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    8
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -526,7 +526,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    9
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    9
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -592,7 +592,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE   10
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE   10
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -658,7 +658,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE   11
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE   11
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -694,13 +694,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000388 2338                   TST         R3,R3
     0000038A 8903                   BT          L464
       Sound4Calc   122        {
-      Sound4Calc   123            *(unsigned char*)SH7305_PJDR ^= 12;
+      Sound4Calc   123            *(unsigned char*)SH7305_PJDR ^= 0x0C;
     0000038C D312                   MOV.L       L476+22,R3 ; H'A4050130
     0000038E 6030                   MOV.B       @R3,R0
     00000390 A003                   BRA         L472
     00000392 CA0C                   XOR         #12,R0
     00000394              L464:                             
-      Sound4Calc   124            //set pin to 0x47 or reset it to 0x4B
+      Sound4Calc   124            //set pin to 0x4B or reset it to 0x47
       Sound4Calc   125        }
       Sound4Calc   126        else 
       Sound4Calc   127        {
@@ -724,7 +724,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE   12
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE   12
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -790,7 +790,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE   13
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE   13
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -856,7 +856,7 @@ C   00000000              _sc0015:                         ; static: sc0015
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE   14
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE   14
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -922,7 +922,7 @@ B_B 00000000              _BR_Size:                        ; static: BR_Size
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:36:31  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 02-Dec-2015 21:42:32  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -991,5 +991,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            53
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\mosnier\AppData\Local\Temp\hmkC4A9.tmp 
+  -subcommand=C:\Users\mosnier\AppData\Local\Temp\hmk46D3.tmp 
 

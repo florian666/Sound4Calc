@@ -72,8 +72,8 @@ void setup()
     if(is_SH4)
     {
     // inital value : xxxx 01xx
-        *(unsigned char*)SH7305_PJDR |= 0x04;
-        *(unsigned char*)SH7305_PJDR &= ~0x08;
+        *(unsigned char*)SH7305_PJDR &= ~0x04;
+        *(unsigned char*)SH7305_PJDR |= 0x08;
     // final value :  xxxx 10xx
     // now, we can do 'xor' to make sound
 
@@ -120,7 +120,7 @@ void Pin(void)
 {
     if(is_SH4)
     {
-        *(unsigned char*)SH7305_PJDR ^= 12;
+        *(unsigned char*)SH7305_PJDR ^= 0x0C;
         //set pin to 0x4B or reset it to 0x47
     }
     else 
