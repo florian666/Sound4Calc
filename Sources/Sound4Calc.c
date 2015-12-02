@@ -121,7 +121,7 @@ void Pin(void)
     if(is_SH4)
     {
         *(unsigned char*)SH7305_PJDR ^= 12;
-        //set pin to 0x47 or reset it to 0x4B
+        //set pin to 0x4B or reset it to 0x47
     }
     else 
     {
