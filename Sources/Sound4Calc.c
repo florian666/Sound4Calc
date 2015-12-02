@@ -31,7 +31,7 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
 
     int sleep = 2000;
     int i;
-
+    
     setup();
 
     while(1)
@@ -72,8 +72,8 @@ void setup()
     if(is_SH4)
     {
     // inital value : xxxx 01xx
-        *(unsigned char*)SH7305_PJDR &= ~0x04;
-        *(unsigned char*)SH7305_PJDR |= 0x08;
+        *(unsigned char*)SH7305_PJDR |= 0x04;
+        *(unsigned char*)SH7305_PJDR &= ~0x08;
     // final value :  xxxx 10xx
     // now, we can do 'xor' to make sound
 
