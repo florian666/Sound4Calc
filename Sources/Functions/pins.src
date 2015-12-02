@@ -56,14 +56,14 @@ _getMPU:
         MOV.L       ADR+8,R1 ; R1 = H'A4000114
         MOV.W       @R1,R2 ; R2 =*R1
         MOV.W       VAL,R5 ; R5 = 0xFFFF
-        MOV.W       R5,@R1 ; *R5 = R1
+        MOV.W       R5,@R1 ; *R1 = R5
         MOV.W       @R1,R3 ; R3 = *R1
         EXTU.W      R3,R3 ; ; R3 &= 0xFFFF
         MOV.W       R2,@R1 ;*R1 = R2
         MOV.W       VAL+2,R5 ; R5 = 0xFF
         AND         R5,R3 ; R3 &= R5
         CMP/EQ      R5,R3 ; T=((R3 = R5) ? 1 : 0)
-        BF          L265 ; if T = 0 (is_SH4) --> L265
+        BF          L265 ; if T = 0 (is_SH4ndé) --> L265
       
         RTS
         MOV         #0,R0 ; R0 = 0
@@ -73,9 +73,6 @@ _getMPU:
         MOV         #1,R0 ; R0 = 1
 
         NOP
-
-
-
 
     ADR:                         
         .DATA.L     H'A4050130 ; SH7305_PJDR

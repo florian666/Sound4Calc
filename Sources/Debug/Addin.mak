@@ -3,8 +3,8 @@
 #
 ############################
 # Directory defines
-TCDIR = C:\Users\mosnier\Desktop\projet avenger\OS\SH
-OSDIR = C:\Users\mosnier\Desktop\projet avenger\OS
+TCDIR = C:\Casio_SDK\OS\SH
+OSDIR = C:\Casio_SDK\OS
 APPDIR = C:\Users\mosnier\Desktop\Sound4Calc\Sources
 OUTDIR = C:\Users\mosnier\Desktop\Sound4Calc\Sources\Debug
 
@@ -14,7 +14,7 @@ SH_EXEDIR=$(TCDIR)\bin
 
 # Hitachi SH C/C++ Compiler02 phase
 SHCC02_EXE=shc.exe
-SHCC02_DEP="$(OSDIR)\FX\include\fxlib.h" "addresses.h" "Sound4Calc.h" "pins.h"
+SHCC02_DEP="$(OSDIR)\FX\include\fxlib.h" "addresses.h" "Sound4Calc.h"
 
 # Hitachi SH Assembler03 phase
 SHASM03_EXE=asmsh.exe
@@ -29,11 +29,8 @@ SHLINK04_DEP2="$(OSDIR)\FX\lib\setup.obj"
 FILE0=Sound4Calc
 FILESRC0="$(APPDIR)\$(FILE0).c"
 FILEOBJ0="$(OUTDIR)\$(FILE0).obj"
-FILE1=pins
-FILESRC1="$(APPDIR)\$(FILE1).src"
-FILEOBJ1="$(OUTDIR)\$(FILE1).obj"
 RFILE=FXADDINror
-USERALLOBJ=$(FILEOBJ0) $(FILEOBJ1)
+USERALLOBJ=$(FILEOBJ0)
 
 #######################
 # nmake "all" statement
@@ -71,23 +68,6 @@ $(FILESRC0)
 -lang=c
 -nologo
 -debug
-<<
-
-$(FILEOBJ1) : $(FILESRC1)
-	"$(SH_EXEDIR)\$(SHASM03_EXE)" -subcommand=<<
-$(FILESRC1)
--cpu=sh3
--endian=big
--round=zero
--denormalize=off
--include="$(APPDIR)"
--include="$(OSDIR)\FX\include"
--debug
--object=$(FILEOBJ1)
--literal=pool,branch,jump,return
--nologo
--chgincpath
--errorpath
 <<
 
 !MESSAGE

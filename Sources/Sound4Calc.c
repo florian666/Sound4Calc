@@ -14,7 +14,6 @@
 #include "SH4comp.c"
 #include "addresses.h"
 #include "Sound4Calc.h"
-#include "pins.h"
 
 /*****************************************************************/
 /*                                                               */
@@ -54,9 +53,9 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
             case KEY_CTRL_EXE :
             while(IsKeyDown(KEY_CTRL_EXE))
             {
-                SetPin(); 
+                Pin();
                 for(i=0;i<sleep;i++);
-                ResetPin();
+                Pin();
             }
             break;
             case KEY_CTRL_EXIT :
@@ -72,6 +71,12 @@ void setup()
 
     if(is_SH4)
     {
+    // inital value : xxxx 01xx
+        *(unsigned char*)SH7305_PJDR |= 0x04;
+        *(unsigned char*)SH7305_PJDR &= ~0x08;
+    // final value :  xxxx 10xx
+    // now, we can do 'xor' to make sound
+
     // SCIF2 clock on (MSTPCR0.MSTP007) 
         *(unsigned int*)SH7305_MSTPCR0 &= ~0x00000080;
     // switch off SCSMR_2.TE and SCSMR_2.RE 
@@ -109,6 +114,42 @@ void setup()
     *(unsigned short*)0xA4050110 = ( *(unsigned short*)0xA4050110 & ~0x0030 ) | 0x0010;
     // set port J bit 3 to input    
     *(unsigned short*)0xA4050110 = ( *(unsigned short*)0xA4050110 & ~0x00C0 ) | 0x0080;*/
+}
+
+void Pin(void)
+{
+    if(is_SH4)
+    {
+        *(unsigned char*)SH7305_PJDR ^= 12;
+        //set pin to 0x47 or reset it to 0x4B
+    }
+    else 
+    {
+        *(unsigned char*)SH7337_SCPDR ^= 0x01;
+    }
+}
+
+
+char getMPU(void)
+{
+    // Port L control register.
+    volatile unsigned short *plcr = (unsigned short *)0xa4000114;
+    // Saved value for PLCR.
+    unsigned short saved_plcr;
+    unsigned int tested_plcr;
+
+    saved_plcr = *plcr;
+    *plcr = 0xffff;
+
+    tested_plcr = *plcr;
+    *plcr = saved_plcr;
+
+    if(tested_plcr == 0x00ff || tested_plcr == 0x0fff)
+    {
+        return 0; // MPU_SH3
+    }
+
+    return 1; // MPU_SH4
 }
 
 //****************************************************************************
